@@ -8,7 +8,7 @@ use axum::{
     routing::{get, post},
     Router,
 };
-use std::{ops::Add, sync::Arc};
+use std::sync::Arc;
 
 pub fn build_routes() -> Router {
     Router::new()
@@ -18,11 +18,10 @@ pub fn build_routes() -> Router {
 }
 
 async fn hello(State(model): State<Arc<Model>>) -> Html<String> {
-    Html(views::greet("World", &model.score.read().unwrap()))
+    Html(views::greet("World", &model.get_score()))
 }
 
 async fn increment(State(model): State<Arc<Model>>) -> Html<String> {
-    let mut x = model.score.write().unwrap();
-    *x += 1;
-    Html(views::counter(&x))
+    model.increment_score();
+    Html(views::counter(&model.get_score()))
 }
