@@ -1,0 +1,8 @@
+<div hx-post="/comments" hx-trigger="every 0.9s" id="comments_bulk">
+    <ul>
+      <h3> Comments </h3>
+      {% for comment in comments %}
+        <li> {{ comment }} </li>
+      {% endfor %}
+    </ul>
+</div>

@@ -40,7 +40,7 @@ async fn comments(State(model): State<Arc<Model>>, Form(data): Form<CommentData>
         model.new_comment(newcomment.clone());
     }
     views::render_template(
-        "components/comments.html",
+        "components/read_comments.html",
         &context! { comments => &*model.get_comments() },
     )
 }

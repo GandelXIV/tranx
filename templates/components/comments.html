@@ -1,13 +1,2 @@
-<div id="comments_bulk">
-  <ul>
-    <h3> Comments </h3>
-    {% for comment in comments %}
-      <li> {{ comment }} </li>
-    {% endfor %}
-  </ul>
-
-  <form hx-post="/comments" hx-target="#comments_bulk">
-    <input name="newcomment" type="text"> </input>
-    <input type="submit"></input>
-  </form>
-</div>
+{% include "components/read_comments.html" %}
+{% include "components/post_comment.html" %}
