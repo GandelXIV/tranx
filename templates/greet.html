@@ -1,4 +1,12 @@
-<script src="https://unpkg.com/htmx.org@1.9.8"></script>
+<head>
+  <script src="https://unpkg.com/htmx.org@1.9.8"></script>
+  <link rel='stylesheet' href='/static/style.css'></link>
+</head>
 
-Hello, {{ name }}!
-<br> {% include "counter.html" %}
+<body>
+  <div class="greeting">
+    Hello, {{ name }}!
+    <br>
+    <br> {% include "counter.html" %}
+  </div>
+<body>
