@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div class="greeting">
+    Hello, {{ name }}!
+    <br>
+    <br> {% include "components/counter.html" %}
+  </div>
+{% endblock %}

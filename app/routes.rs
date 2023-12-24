@@ -23,12 +23,15 @@ pub fn build_routes() -> Router {
 
 async fn hello(State(model): State<Arc<Model>>) -> Html<String> {
     views::render_template(
-        "greet.html",
+        "pages/greet.html",
         &context! { name => "World", score => &model.get_score()},
     )
 }
 
 async fn increment(State(model): State<Arc<Model>>) -> Html<String> {
     model.increment_score();
-    views::render_template("counter.html", &context! { score => &model.get_score() })
+    views::render_template(
+        "components/counter.html",
+        &context! { score => &model.get_score() },
+    )
 }
