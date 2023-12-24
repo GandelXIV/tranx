@@ -4,4 +4,4 @@ COPY static /srv/static
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 8000
+EXPOSE 7000
