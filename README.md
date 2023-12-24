@@ -10,6 +10,6 @@ A modern tech stack using the following technologies:
 The following need to be installed:
 - Cargo
 - Cargo-watch
-- Rust
 - Docker
+<br>
 Simply run `./appdev.sh` and `./proxy` to start develing
