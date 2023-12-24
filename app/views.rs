@@ -1,3 +1,4 @@
+use axum::response::Html;
 use lazy_static::lazy_static;
 use tera::Context;
 use tera::Tera;
@@ -6,15 +7,23 @@ lazy_static! {
     pub static ref TEMPLATES: Tera = Tera::new("templates/**/*.html").unwrap();
 }
 
-pub fn greet(name: &str, score: &usize) -> String {
-    let mut context = Context::new();
-    context.insert("name", name);
-    context.insert("score", score);
-    TEMPLATES.render("greet.html", &context).unwrap()
+#[macro_export]
+macro_rules! context {
+    (
+        $(
+            $key:ident $(=> $value:expr)? $(,)*
+        )*
+    ) => {
+        {
+            let mut context = Context::new();
+            $(
+                context.insert(stringify!($key), $($value)?);
+            )*
+            context
+        }
+    };
 }
 
-pub fn counter(score: &usize) -> String {
-    let mut context = Context::new();
-    context.insert("score", &score);
-    TEMPLATES.render("counter.html", &context).unwrap()
+pub fn render_template(name: &str, ctx: &Context) -> Html<String> {
+    Html(TEMPLATES.render(name, ctx).unwrap())
 }

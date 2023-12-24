@@ -5,6 +5,11 @@ A modern tech stack using the following technologies:
 - Axum -> web framework for Rust
 - Nginx -> web/proxy server
 - htmX -> frontend library
-# Additional technologies
-- Docker(compose) -> containers and IaC
-- Tokio -> Rust async execution
+
+# Setup
+The following need to be installed:
+- Cargo
+- Cargo-watch
+- Rust
+- Docker
+Simply run `./appdev.sh` and `./proxy` to start develing
